@@ -1,10 +1,6 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -29,7 +25,7 @@ public class DemoQATests {
 
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").$("option[value='1992']").click();
-        $(".react-datepicker__year-select").$("option[value='1992']").click();
+        $(".react-datepicker__month-select").$("option[value='5']").click();
         $(".react-datepicker__day--028").click();
 
         $("#subjectsInput").setValue("English").pressEnter();
@@ -37,6 +33,8 @@ public class DemoQATests {
 
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
+
+
 
     }
 }
