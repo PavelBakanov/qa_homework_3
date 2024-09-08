@@ -35,7 +35,8 @@ public class DemoQATests {
         $("#subjectsInput").setValue("English").pressEnter();
         $("#subjectsInput").setValue("Maths").pressEnter();
 
-        //$("hobbiesWrapper").$("hobbies-checkbox-2").click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
 
     }
 }
