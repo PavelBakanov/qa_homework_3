@@ -24,7 +24,7 @@ public class DemoQATests {
 
 
 
-
+    //настройка
     @BeforeAll
     static void beforeAll()
     {
@@ -33,6 +33,7 @@ public class DemoQATests {
         Configuration.pageLoadStrategy = "eager";
         //Configuration.holdBrowserOpen = true;
     }
+    //заполнение формы
     @Test
     void demoQATest()
     {
