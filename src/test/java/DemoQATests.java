@@ -82,8 +82,5 @@ public class DemoQATests {
         $(".table-responsive").shouldHave(text(address));
         $(".table-responsive").shouldHave(text(state));
         $(".table-responsive").shouldHave(text(city));
-
-
-
     }
 }
