@@ -2,6 +2,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -46,7 +47,7 @@ public class DemoQATests {
 
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").$("option[value='1992']").click();
-        $(".react-datepicker__month-select").$("option[value='5']").click();
+        $(".react-datepicker__month-select").$("option[value='6']").click();
         $(".react-datepicker__day--028").click();
 
         $("#subjectsInput").setValue(subjectsOne).pressEnter();
@@ -67,20 +68,18 @@ public class DemoQATests {
 
         $("#submit").click();
 
-        //проверка
-        $(".table-responsive").shouldHave(text(firstName));
-        $(".table-responsive").shouldHave(text(lastName));
-        $(".table-responsive").shouldHave(text(userEmail));
-        $(".table-responsive").shouldHave(text(gender));
-        $(".table-responsive").shouldHave(text(userNumber));
-        $(".table-responsive").shouldHave(text("28 june,1992"));
-        $(".table-responsive").shouldHave(text(subjectsOne));
-        $(".table-responsive").shouldHave(text(subjectsTwo));
-        $(".table-responsive").shouldHave(text(hobbiesOne));
-        $(".table-responsive").shouldHave(text(hobbiesTwo));
-        $(".table-responsive").shouldHave(text(pictureName));
-        $(".table-responsive").shouldHave(text(address));
-        $(".table-responsive").shouldHave(text(state));
-        $(".table-responsive").shouldHave(text(city));
+        //4. проверка
+        $(".table-responsive").$(byTagAndText("td", "Student Name")).sibling(0).shouldHave(text(firstName + " " + lastName));
+        $(".table-responsive").$(byTagAndText("td", "Student Email")).sibling(0).shouldHave(text(userEmail));
+        $(".table-responsive").$(byTagAndText("td", "Gender")).sibling(0).shouldHave(text(gender));
+        $(".table-responsive").$(byTagAndText("td", "Mobile")).sibling(0).shouldHave(text(userNumber));
+        $(".table-responsive").$(byTagAndText("td", "Date of Birth")).sibling(0).shouldHave(text("28 June,1992"));
+        $(".table-responsive").$(byTagAndText("td", "Subjects")).sibling(0).shouldHave(text(subjectsOne + ", " + subjectsTwo));
+        $(".table-responsive").$(byTagAndText("td", "Hobbies")).sibling(0).shouldHave(text(hobbiesOne + ", " + hobbiesTwo));
+        $(".table-responsive").$(byTagAndText("td", "Picture")).sibling(0).shouldHave(text(pictureName));
+        $(".table-responsive").$(byTagAndText("td", "Address")).sibling(0).shouldHave(text(address));
+        $(".table-responsive").$(byTagAndText("td", "State and City")).sibling(0).shouldHave(text(state + " " + city));
+
+
     }
 }
