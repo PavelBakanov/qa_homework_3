@@ -46,8 +46,8 @@ public class DemoQATests {
         $("#userNumber").setValue(userNumber);
 
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").$("option[value='1992']").click();
-        $(".react-datepicker__month-select").$("option[value='6']").click();
+        $(".react-datepicker__year-select").selectOption("1992");
+        $(".react-datepicker__month-select").selectOption("June");
         $(".react-datepicker__day--028").click();
 
         $("#subjectsInput").setValue(subjectsOne).pressEnter();
