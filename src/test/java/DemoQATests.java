@@ -32,7 +32,7 @@ public class DemoQATests {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        //Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
     }
     //заполнение формы
     @Test
@@ -46,8 +46,8 @@ public class DemoQATests {
         $("#userNumber").setValue(userNumber);
 
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").selectOption("1992");
-        $(".react-datepicker__month-select").selectOption("June");
+        $(".react-datepicker__year-select").$(byText("1992")).click();
+        $(".react-datepicker__month-select").$(byText("June")).click();
         $(".react-datepicker__day--028").click();
 
         $("#subjectsInput").setValue(subjectsOne).pressEnter();
